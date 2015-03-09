@@ -36,12 +36,12 @@ html
 	body
 
 		//- HEADER
-		#header: .container
+		#header: .container-fluid
 
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
 
-			div(role="navigation").navbar.navbar-default
+			div(role="navigation").navbar.navbar-fixed-top
 				.container-fluid
 					.navbar-header
 						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -49,7 +49,8 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href='/') Containerwelt
+						a.navbar-brand(href='/')
+							img(src='/images/icon-info.svg', width='60')
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
 							each link in navLinks
@@ -57,7 +58,7 @@ html
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
+									li: a(href='/keystone') Open Backend
 								li: a(href='/keystone/signout') Sign Out
 							else
 								li: a(href='/keystone/signin') Sign In
@@ -79,13 +80,19 @@ html
 			//- The content block should contain the body of your template's content
 			block content
 
-
 		//- FOOTER
 		.container: #footer
-
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
-
+			p Crafted by <a href="http://www.wearepictures.com" target="_blank">WAP</a>.
+		#infoModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h3#infoModalLabel Info
+			.modal-body
+				p ALEXANDER KLOSE
+					| Concepter, Author, Containerresearcher
+					| Büro für prekäre Konzepte (Office for Precarious Concepts): Boeckhstr. 34, 10967 Berlin
+					| Email: twistlock@containerwelt.info
 
 		//- JAVASCRIPT
 

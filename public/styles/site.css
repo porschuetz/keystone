@@ -4821,3 +4821,11 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+p {
+  font-family: 'EB Garamond', serif; }
+
+h1, h2, h3, h4, h5, h6, a, div, li, td, th {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-transform: uppercase;
+  font-weight: 400; }

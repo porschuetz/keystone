@@ -11,6 +11,8 @@ html
 
 		title= title || 'Containerwelt'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(rel="stylesheet", href='http://fonts.googleapis.com/css?family=EB+Garamond', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic', rel='stylesheet', type='text/css')
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(href="/styles/site.css", rel="stylesheet")
@@ -49,19 +51,18 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href='/')
+						a.navbar-brand(href='#info', data-toggle='modal', data-target='#infoModal')
 							img(src='/images/icon-info.svg', width='60')
 					.collapse.navbar-collapse
-						ul.nav.navbar-nav.navbar-left
-							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
 									li: a(href='/keystone') Open Backend
-								li: a(href='/keystone/signout') Sign Out
+								li: a(href='/keystone/signout')
+									img(src='/images/icon-signout.svg', width='60')
 							else
-								li: a(href='/keystone/signin') Sign In
+								li: a(href='/keystone/signin')
+									img(src='/images/icon-signin.svg', width='60')
 
 		//- BODY
 		#body
@@ -83,16 +84,33 @@ html
 		//- FOOTER
 		.container: #footer
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			p Crafted by <a href="http://www.wearepictures.com" target="_blank">WAP</a>.
-		#infoModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+
+		#infoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
 			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-				h3#infoModalLabel Info
+				button.close(type='button', data-dismiss='modal', aria-hidden='true')
+					img(src='/images/icon-cross.svg', width='60')
+				h3#infoModalLabel
 			.modal-body
-				p ALEXANDER KLOSE
-					| Concepter, Author, Containerresearcher
-					| Büro für prekäre Konzepte (Office for Precarious Concepts): Boeckhstr. 34, 10967 Berlin
-					| Email: twistlock@containerwelt.info
+				.container
+					.col-md-8.col-md-offset-2.text-center
+						h4 ALEXANDER KLOSE
+						h5 Concepter, Author, Containerresearcher
+						p Büro für prekäre Konzepte (Office for Precarious Concepts):
+						br
+						Boeckhstr. 34, 10967 Berlin
+						p Email: twistlock@containerwelt.info
+						hr
+						h5 Credits
+						p Crafted by:
+							a(href='http://www.wearepictures.com',target='_blank') WEAREPICTURES
+						p Icons:
+							a(href='http://thenounproject.com/artworkbean',target='_blank') Baabullah Hasan
+
+			.modal-footer.text-center
+				ul.nav.nav-stacked
+					li.nav-header Menu
+					each link in navLinks
+						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 
 		//- JAVASCRIPT
 

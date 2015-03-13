@@ -11,8 +11,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Containerwelt',
-	'brand': 'Containerwelt',
+	'name': 'Containerwelt 4',
+	'brand': 'Containerwelt 4',
 	
 	'sass': 'public',
 	'static': 'public',
@@ -26,7 +26,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': 'XZpG0lq!(4>S|4G(t,,H~+2B</:=+I>=h|<vBbS.2E6h(>p-l%o|3{}TO2.A~0v>'
+	'cookie secret': 'tQD,J+$3N1u8N(~&1(-"MZ%mPtIS7bx@8ep&4^]HbiIyD12]iT!y>bmN<f6?ZI}q'
 
 });
 

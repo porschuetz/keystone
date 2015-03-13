@@ -50,10 +50,10 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 		new keystone.Email('enquiry-notification').send({
 			to: admins,
 			from: {
-				name: 'Containerwelt',
-				email: 'contact@containerwelt.com'
+				name: 'Containerwelt 4',
+				email: 'contact@containerwelt-4.com'
 			},
-			subject: 'New Enquiry for Containerwelt',
+			subject: 'New Enquiry for Containerwelt 4',
 			enquiry: enquiry
 		}, callback);
 		
